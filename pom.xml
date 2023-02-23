@@ -12,6 +12,7 @@
     <modules>
         <module>meta-demoa</module>
         <module>meta-common</module>
+        <module>meta-demob</module>
     </modules>
 
     <parent>

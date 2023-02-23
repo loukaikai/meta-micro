@@ -1,0 +1,31 @@
+server:
+  port: 8083
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  datasource:
+    url: jdbc:mysql://118.31.17.219:3306/here_web?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: Here123456.
+  redis:
+    host: 118.31.17.219 #Redis服务器地址
+    database: 0 #Redis数据库索引（默认为0）
+    port: 6379 #Redis服务器连接端口
+    password: Here123456. #Redis服务器连接密码（默认为空）
+    timeout: 3000ms #连接超时时间（毫秒）
+mybatis:
+  mapper-locations:
+    - classpath:mapper/*.xml
+    - classpath*:com/**/mapper/*.xml
+management: #开启SpringBoot Admin的监控
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+feign:
+  okhttp:
+    enabled: true
