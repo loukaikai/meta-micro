@@ -13,6 +13,7 @@
         <module>meta-demoa</module>
         <module>meta-common</module>
         <module>meta-demob</module>
+        <module>meta-common</module>
     </modules>
 
     <parent>

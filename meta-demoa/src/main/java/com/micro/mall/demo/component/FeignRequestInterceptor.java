@@ -13,7 +13,7 @@ import java.util.Enumeration;
 
 /**
  * 用于Feign传递请求头的拦截器
- * Created by macro on 2019/10/18.
+ * loukaikai on 2023/02/24 on 2019/10/18.
  */
 public class FeignRequestInterceptor implements RequestInterceptor {
     @Override

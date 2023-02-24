@@ -4,7 +4,7 @@ import com.micro.meta.common.api.IErrorCode;
 
 /**
  * 自定义API异常
- * Created by macro on 2020/2/27.
+ * loukaikai on 2023/02/24 on 2020/2/27.
  */
 public class ApiException extends RuntimeException {
     private IErrorCode errorCode;

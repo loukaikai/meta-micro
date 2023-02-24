@@ -1,7 +1,7 @@
 package com.micro.mall.demo.service;
 
 /**
- * Created by macro on 2019/10/18.
+ * loukaikai on 2023/02/24 on 2019/10/18.
  */
 // @FeignClient("mall-admin")
 public interface FeignAdminService {

@@ -2,7 +2,7 @@ package com.micro.meta.common.api;
 
 /**
  * 通用返回对象
- * Created by macro on 2019/4/19.
+ * loukaikai on 2023/02/24 on 2019/4/19.
  */
 public class CommonResult<T> {
     private long code;

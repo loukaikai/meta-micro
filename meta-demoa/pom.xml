@@ -8,7 +8,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>mall-demo</name>
+    <name>meta-demoa</name>
     <description>mall-demo project for mall</description>
 
     <parent>

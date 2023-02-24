@@ -21,7 +21,7 @@ import java.time.Duration;
 
 /**
  * Redis基础配置
- * Created by macro on 2020/6/19.
+ * loukaikai on 2023/02/24 on 2020/6/19.
  */
 public class BaseRedisConfig {
 
