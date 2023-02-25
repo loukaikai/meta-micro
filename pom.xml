@@ -11,6 +11,7 @@
 
     <modules>
         <module>meta-demoa</module>
+        <module>here-gateway</module>
         <module>meta-common</module>
         <module>meta-demob</module>
         <module>meta-common</module>

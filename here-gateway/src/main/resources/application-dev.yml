@@ -1,0 +1,10 @@
+server:
+  port: 9100
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 118.31.17.219:8848
+  application:
+    name: here-gateway
