@@ -1,5 +1,5 @@
 server:
-  port: 8083
+  port: 8084
 spring:
   mvc:
     pathmatch:
@@ -29,3 +29,12 @@ management: #开启SpringBoot Admin的监控
 feign:
   okhttp:
     enabled: true
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /swagger2-api-docs
+        enabled: true
+      bootstrap-ui:
+        path: /docs.html
+        enabled: true

@@ -9,13 +9,14 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
 /**
  * SpringSecurity配置 使用了WebSecurityConfigurerAdapter来配置安全设置
  * Created by loukaikai on 2020/6/19.
  */
 @Configuration
-@EnableWebSecurity
+@EnableWebSecurity(debug = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
@@ -29,9 +30,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .requestMatchers(EndpointRequest.toAnyEndpoint()).permitAll()
                 .antMatchers("/rsa/publicKey").permitAll()
-                .antMatchers("/v2/api-docs").permitAll()
+                .antMatchers("/v2/api-docs", "doc.html").permitAll()
+                .antMatchers("/doc.html", "/doc.html/**", "/webjars/**", "/v2/**", "/swagger-resources",
+                        "/swagger-resources/**", "/swagger-ui.html", "/swagger-ui.html/**").permitAll()
                 .antMatchers("/oauth/token").permitAll()
-                .anyRequest().authenticated();
+                .anyRequest().authenticated().and().csrf().disable();
     }
 
     /**
