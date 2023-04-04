@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>meta-openai</module>
         <module>meta-demoa</module>
         <module>here-gateway</module>
         <module>meta-common</module>
