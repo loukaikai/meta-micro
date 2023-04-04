@@ -1,18 +1,19 @@
 package com.micro.meta.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 
 import java.util.List;
 import java.util.Map;
 
 
 /**
+ * 设置我们调用的模型的参数
+ *
  * @author loukaikai
  * @version 1.0.0
- * @ClassName ModelConfig.java
- * @Description 设置我们调用的模型的参数
- * @createTime 2023年03月21日 09:52:00
  */
+@Data
 public class ModelConfig {
 
     String id;

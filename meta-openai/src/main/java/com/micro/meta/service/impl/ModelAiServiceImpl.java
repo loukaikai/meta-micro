@@ -23,11 +23,11 @@ import okhttp3.OkHttpClient;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import retrofit2.Retrofit;
 
+import javax.annotation.Resource;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.time.Duration;
@@ -38,9 +38,7 @@ import java.util.List;
 /**
  * @author loukaikai
  * @version 1.0.0
- * @ClassName OpenAiServiceImpl.java
- * @Description TODO
- * @createTime 2023年03月19日 11:08:00
+ * @since 2023年03月19日 11:08:00
  */
 @Service
 public class ModelAiServiceImpl implements ModelAiService {
@@ -60,32 +58,41 @@ public class ModelAiServiceImpl implements ModelAiService {
     @Value("${proxy.port}")
     private String port;
 
-    @Autowired
+    @Resource
     private RedisService redisService;
 
-    /**
-     * @return
+    /**获取模型列表
+     * @return 模型列表
      */
     @Override
-    public List<Model> listModels() {
+    public ResultObject<List<Model>> listModels() {
         LOGGER.info("获取模型列表");
         ResultObject<List<Model>> resultObject = new ResultObject<>();
         OpenAiService openAiService = createOpenAiApi();
         List<Model> list = openAiService.listModels();
         LOGGER.info("获取模型列表完成");
-        return list;
+        return resultObject;
     }
 
     /**
-     * @param openaiVO
-     * @return
+     * 获取预测文本
+     *
+     * @param openaiVO openVo
+     * @return CompletionChoice列表
      */
     @Override
     public ResultObject<List<CompletionChoice>> completionChoice(OpenaiVO openaiVO) {
         LOGGER.info("获取预测文本");
         ResultObject<List<CompletionChoice>> resultObject = new ResultObject<>();
         OpenAiService openAiService = createOpenAiApi();
-        CompletionRequest completionRequest = CompletionRequest.builder().model("text-davinci-003").prompt(openaiVO.getPrompt()).n(5).maxTokens(50).user(openaiVO.getUser()).logitBias(new HashMap<>()).logprobs(5).build();
+        CompletionRequest completionRequest = CompletionRequest.builder()
+                .model("text-davinci-003")
+                .prompt(openaiVO.getPrompt())
+                .n(5).maxTokens(50)
+                .user(openaiVO.getUser())
+                .logitBias(new HashMap<>())
+                .logprobs(5)
+                .build();
         CompletionResult completionResult = openAiService.createCompletion(completionRequest);
         LOGGER.info("返回结果：[{}]", JSONObject.toJSONString(completionResult));
         List<CompletionChoice> choices = completionResult.getChoices();
@@ -96,8 +103,10 @@ public class ModelAiServiceImpl implements ModelAiService {
     }
 
     /**
-     * @param chatOpenAiVO
-     * @return
+     * chatGPT对话功能接口
+     *
+     * @param chatOpenAiVO chatOpenAiVo
+     * @return ChatCompletionChoice列表
      */
     @Override
     public ResultObject<List<ChatCompletionChoice>> chatCompletionChoice(ChatOpenAiVO chatOpenAiVO) {

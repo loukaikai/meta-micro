@@ -3,9 +3,6 @@ package com.micro.meta.contants;
 /**
  * @author loukaikai
  * @version 1.0.0
- * @ClassName OpenAiContants.java
- * @Description TODO
- * @createTime 2023年03月21日 21:32:00
  */
 public class OpenAiContants {
     /**

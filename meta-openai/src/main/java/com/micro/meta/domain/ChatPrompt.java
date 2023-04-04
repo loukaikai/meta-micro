@@ -1,12 +1,12 @@
 package com.micro.meta.domain;
 
+import lombok.Data;
+
 /**
  * @author loukaikai
  * @version 1.0.0
- * @ClassName ChatPrompt.java
- * @Description 主要针对chatGPT来配置聊天模板
- * @createTime 2023年03月21日 09:25:00
  */
+@Data
 public class ChatPrompt {
     String id;
 
@@ -31,7 +31,6 @@ public class ChatPrompt {
     /**********************以下字段皆为预留，
      * model 默认gpt-3.5-turbo
      * temperature
-     *
      * **********************/
     String modelId;
 }

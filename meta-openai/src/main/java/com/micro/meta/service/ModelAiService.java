@@ -12,16 +12,31 @@ import java.util.List;
 /**
  * @author loukaikai
  * @version 1.0.0
- * @ClassName OpenAiService.java
- * @Description TODO
- * @createTime 2023年03月19日 11:08:00
  */
 public interface ModelAiService {
 
-    List<Model> listModels();
+    /**
+     * 获取模型列表
+     *
+     * @return 返回模型列表
+     */
+    ResultObject<List<Model>> listModels();
 
+
+    /**
+     * 根据模版生成文本
+     *
+     * @param openaiVO openaiVo
+     * @return CompletionChoice列表
+     */
     ResultObject<List<CompletionChoice>> completionChoice(OpenaiVO openaiVO);
 
+    /**
+     * chatGPT对话功能接口
+     *
+     * @param chatOpenAiVO chatOpenaiVo
+     * @return ChatCompletionChoice列表
+     */
     ResultObject<List<ChatCompletionChoice>> chatCompletionChoice(ChatOpenAiVO chatOpenAiVO);
 
 }

@@ -5,9 +5,6 @@ import lombok.Data;
 /**
  * @author loukaikai
  * @version 1.0.0
- * @ClassName ChatOpenAiVO.java
- * @Description TODO
- * @createTime 2023年03月20日 19:54:00
  */
 @Data
 public class ChatOpenAiVO {

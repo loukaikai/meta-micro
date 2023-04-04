@@ -3,9 +3,6 @@ package com.micro.meta.contants;
 /**
  * @author loukaikai
  * @version 1.0.0
- * @ClassName ModelContants.java
- * @Description model常量
- * @createTime 2023年03月20日 20:14:00
  */
 public class ModelContants {
 

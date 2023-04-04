@@ -9,25 +9,22 @@ import com.theokanning.openai.completion.CompletionChoice;
 import com.theokanning.openai.model.Model;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
  * @author loukaikai
  * @version 1.0.0
- * @ClassName OpenAiControoler.java
- * @Description TODO
- * @createTime 2023年03月19日 10:39:00
  */
 @RestController
 @RequestMapping("/openai")
 @Api(tags = "智能导购模块-接入opnai")
 public class OpenAiController {
 
-    @Autowired
+    @Resource
     private ModelAiService modelAiService;
 
     /**
@@ -40,7 +37,7 @@ public class OpenAiController {
     @ResponseBody
     @Log
     @ApiOperation("获取模型列表")
-    public List<Model> models() {
+    public ResultObject<List<Model>> models() {
         return modelAiService.listModels();
     }
 
